@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-import { Check, Waypoints, Ticket, Eye } from "lucide-react";
+import { Check, Waypoints, Ticket } from "lucide-react";
 
 import paths from "@/paths";
 
@@ -16,9 +16,9 @@ type TicketCardProps = {
 
 export default function TicketCard({ticket}: TicketCardProps){
     const ticketStatus = {
-        "D": <Check />,
-        "O": <Ticket />,
-        "WIP": <Waypoints />,
+        "DONE": <Check />,
+        "OPEN": <Ticket />,
+        "IN_PROGRESS": <Waypoints />,
       };
     return <div
     className="border-1 p-3 rounded-md shadow-sm h-30 w-80 flex flex-col justify-between"
@@ -32,7 +32,7 @@ export default function TicketCard({ticket}: TicketCardProps){
           {ticket.title}
         </h3>
       </div>
-      <p className={ticket.status === "D" ? "px-2 text-md  text-center line-through" : "px-2 text-md  text-center"}>
+      <p className={ticket.status === "DONE" ? "px-2 text-md  text-center line-through" : "px-2 text-md  text-center"}>
         {ticket.content}
       </p>
     </div>

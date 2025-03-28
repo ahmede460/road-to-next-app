@@ -2,5 +2,5 @@ type Ticket = {
     id: string;
     title: string;
     content: string;
-    status: "D" | "O" | "WIP";
+    status: "OPEN" | "DONE" | "IN_PROGRESS";
 }

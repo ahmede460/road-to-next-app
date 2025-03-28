@@ -3,12 +3,16 @@ import SingleTicketPage from "@/app/features/SingleTicketPage";
 import SingleTicketLoading from "@/app/features/SingleTicketLoading";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
+import getTicket from "@/queries/get-ticket";
 
 type TicketPageProps = {
-  params: {
+  params: Promise<{
     ticketId: string;
-  };
+  }>;
 };
+
+
+
 
 
 

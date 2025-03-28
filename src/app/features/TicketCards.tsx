@@ -1,6 +1,5 @@
 import TicketCard from "@/components/TicketCard"
 import getTickets from "@/queries/get-tickets"
-import { error } from "console"
 
 export default async function TicketCards(){
     const tickets = await getTickets()

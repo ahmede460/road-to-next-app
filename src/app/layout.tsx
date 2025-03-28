@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import Navbar from "@/components/Navbar";
 
@@ -28,13 +29,15 @@ export default function RootLayout({
 
 
   return (
-    <html suppressHydrationWarning lang="en">
+    <html  lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
         <Navbar />
-        <main className="py-10 px-8"> {children}</main>
+        <main className="py-10 px-8"> {children}
+        <Toaster />
+        </main>
        </ThemeProvider>
       </body>
     </html>

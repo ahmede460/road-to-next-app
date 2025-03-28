@@ -1,35 +1,24 @@
 import { Separator } from "@/components/ui/separator"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import getTicket from "@/queries/get-ticket"
 import { Check, Waypoints, Ticket } from "lucide-react";
-import paths from "@/paths";
+import SingleTicketOptions from "@/app/features/SingleTicketOptions";
+
 
 type TicketPageProps = {
-    ticketId: string
-}
-
+  ticketId: string; // Corrected the type from "String" (capital S) to "string" (lowercase s).
+};
 
 
 export default async function SignleTicketPage({ticketId}: TicketPageProps){
-
+  const ticket = await getTicket(ticketId)
     const ticketStatus = {
-        "D": <Check />,
-        "O": <Ticket />,
-        "WIP": <Waypoints />,
+        "DONE": <Check />,
+        "OPEN": <Ticket />,
+        "IN_PROGRESS": <Waypoints />,
       };
-      
-
-    const ticket = await getTicket(ticketId)
-
     if (!ticket) {
         return <div>Ticket not found</div>;
       }
-
-
-
-
-
 return <>
     <div className="flex justify-between items-center ">
 <div>
@@ -42,8 +31,11 @@ ticketStatus[ticket.status]}</span>
 </div>
 
 <Separator className="mb-3 mt-1" />
+
 <div className="">{ticket.content}</div>
-<Button className="mt-3 " asChild><Link href={paths.ticketPath}>Back</Link></Button>
+
+<SingleTicketOptions ticketId={ticket.id} />
+
 
 </>
 
