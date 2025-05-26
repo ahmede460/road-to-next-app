@@ -18,7 +18,14 @@ function Navbar() {
           <Link href={paths.ticketPath}>Tickets</Link>
         </Button>
       </div>
-      <ThemeSwitcher />
+      <div className="flex gap-3 justify-baseline">      <Button variant={"default"} asChild>
+          <Link href={paths.SignIn}>Sign In</Link>
+        </Button>
+      <Button variant={"default"} asChild>
+          <Link href={paths.SignUp}>Sign Up</Link>
+        </Button>
+      <ThemeSwitcher /></div>
+
     </nav>
   );
 }

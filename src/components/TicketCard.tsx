@@ -26,12 +26,11 @@ export default function TicketCard({ticket}: TicketCardProps){
     key={ticket.id}
   >
     <div>
-      <div className="flex gap-25">
-        <p>{ticketStatus[ticket.status]}</p>
+        <p className="absolute">{ticketStatus[ticket.status]}</p>
         <h3 className="text-center font-semibold mb-2">
           {ticket.title}
         </h3>
-      </div>
+      
       <p className={ticket.status === "DONE" ? "px-2 text-md  text-center line-through" : "px-2 text-md  text-center"}>
         {ticket.content}
       </p>

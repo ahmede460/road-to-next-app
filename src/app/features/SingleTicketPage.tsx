@@ -34,7 +34,7 @@ ticketStatus[ticket.status]}</span>
 
 <div className="">{ticket.content}</div>
 
-<SingleTicketOptions ticketId={ticket.id} />
+<SingleTicketOptions ticketId={ticket.id} ticketTitle={ticket.title} ticketContent={ticket.content} ticketStatus={ticket.status} />
 
 
 </>

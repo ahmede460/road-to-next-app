@@ -1,7 +1,5 @@
 "use server";
 import paths from "@/paths";
-import {prisma} from "@/lib/prisma"
-import { redirect } from "next/navigation";
 import axios from "axios";
 import { revalidatePath } from "next/cache";
 
